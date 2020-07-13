@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get '/merchants', to: 'merchants/search#index'
       get '/merchants/:id', to: 'merchants/search#show'
       post '/merchants', to: 'merchants/search#create', param: 'name'
+      patch '/merchants/:id', to: 'merchants/search#update', param: 'name'
     end
   end
 end
