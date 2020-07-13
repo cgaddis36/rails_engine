@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe "API request" do
@@ -6,10 +5,9 @@ RSpec.describe "API request" do
     create_list(:merchant, 3)
 
     visit '/api/v1/merchants'
-require "pry"; binding.pry
-    expect(response).to be_successful
 
-    merchants = JSON.parse(response.body)
-    expect(merchants["data"].count).to eq(3)
+    parsed_data = JSON.parse(page.body)["data"]
+
+    expect(parsed_data.count).to eq(3)
   end
 end
