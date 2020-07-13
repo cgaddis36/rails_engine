@@ -6,13 +6,11 @@ describe "API request" do
 
     merchant = Merchant.last
 
-    name = "New name"
-
-    patch "/api/v1/merchants/#{merchant.id}", params: { name: name }
+    delete "/api/v1/merchants/#{merchant.id}"
 
     parsed_data = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(parsed_data[:id].to_i).to eq(merchant.id)
-    expect(parsed_data[:attributes][:name]).to eq(name)
+    expect(Merchant.all).to be_empty
   end
 end

@@ -17,4 +17,10 @@ class Api::V1::Merchants::SearchController < ApplicationController
     merchant.update(name: params[:name])
     render json: MerchantSerializer.new(merchant)
   end
+
+  def destroy
+    merchant = Merchant.find(params[:id])
+    merchant.delete
+    render json: MerchantSerializer.new(merchant)
+  end
 end
