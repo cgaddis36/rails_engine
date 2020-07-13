@@ -8,6 +8,6 @@ RSpec.describe "API request" do
 
     parsed_data = JSON.parse(page.body)["data"]
 
-    expect(parsed_data.count).to eq(3)
+    expect(parsed_datau.count).to eq(3)
   end
 end
