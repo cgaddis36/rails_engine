@@ -1,4 +1,8 @@
 class Api::V1::Merchants::SearchController < ApplicationController
+  def create
+    merchant = Merchant.create(name: params[:name])
+    render json: MerchantSerializer.new(merchant)
+  end
   def index
     render json: MerchantSerializer.new(Merchant.all)
   end
