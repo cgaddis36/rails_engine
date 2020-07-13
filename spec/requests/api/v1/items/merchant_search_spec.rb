@@ -3,15 +3,15 @@ require 'rails_helper'
 describe "API request" do
   it "find all items for a single merchant" do
     merchant = create(:merchant)
-    create(:item, merchant_id: merchant.id)
+    item = create(:item, merchant_id: merchant.id)
     create(:item, merchant_id: merchant.id)
     create(:item, merchant_id: merchant.id)
     create(:item, merchant_id: merchant.id)
 
-    get "/api/v1/merchants/#{merchant.id}/items"
+    get "/api/v1/items/#{item.id}/merchant"
 
     parsed_data = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(parsed_data.count).to eq(merchant.items.count)
+    expect(parsed_data[:attributes][:name]).to eq(merchant.name)
   end
 end
