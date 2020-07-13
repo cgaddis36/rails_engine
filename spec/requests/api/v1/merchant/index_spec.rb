@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "API request" do
+describe "API request" do
   it "can get a successful JSON response of all merchants" do
     create_list(:merchant, 3)
 
-    visit '/api/v1/merchants'
+    get '/api/v1/merchants'
 
-    parsed_data = JSON.parse(page.body)["data"]
+    parsed_data = JSON.parse(response.body)["data"]
 
-    expect(parsed_datau.count).to eq(3)
+    expect(parsed_data.length).to eq(Merchant.all.length)
   end
 end
