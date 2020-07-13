@@ -8,8 +8,6 @@ describe "API request" do
     create(:item, merchant_id: merchant.id)
     create(:item, merchant_id: merchant.id)
 
-    merchant = Merchant.last
-
     get "/api/v1/merchants/#{merchant.id}/items"
 
     parsed_data = JSON.parse(response.body, symbolize_names: true)[:data]
