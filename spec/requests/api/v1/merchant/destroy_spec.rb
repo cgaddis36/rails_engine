@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "API request" do
-  it "update a single merchant" do
+  it "destroy a single merchant" do
     create(:merchant)
 
     merchant = Merchant.last
