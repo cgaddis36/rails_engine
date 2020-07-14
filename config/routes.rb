@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       namespace :merchants do
         get '/:id/items', to: 'search#item_show'
         get '/find', to: 'search#show'
+        get '/find_all', to: 'search#index'
       end
       get '/merchants', to: 'merchants#index'
       get '/merchants/:id', to: 'merchants#show'
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
 
 
       namespace :items do
+        get '/find', to: 'search#show'
+        get '/find_all', to: 'search#index'
         get '/:id/merchant', to: 'search#merchant_show'
       end
       get '/items', to: 'items#index'
