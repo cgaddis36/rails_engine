@@ -22,4 +22,11 @@ class Api::V1::Merchants::SearchController < ApplicationController
     merchants = Merchant.most_revenue(q)
     render json: MerchantSerializer.new(merchants)
   end
+
+  def items
+    q = params[:quantity].to_i
+    merchants = Merchant.most_items(q)
+    render json: MerchantSerializer.new(merchants)
+  end
+
 end
