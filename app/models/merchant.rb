@@ -18,4 +18,8 @@ class Merchant < ApplicationRecord
     .order('total_revenue DESC')
     .limit("#{quantity}")
   end
+
+  def self.most_items
+
+  end
 end
