@@ -17,4 +17,9 @@ class Api::V1::Merchants::SearchController < ApplicationController
     render json: ItemSerializer.new(items)
   end
 
+  def revenue
+    q = params[:quantity].to_i
+    merchants = Merchant.most_revenue(q)
+    render json: MerchantSerializer.new(merchants)
+  end
 end
